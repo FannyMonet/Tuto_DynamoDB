@@ -2,6 +2,7 @@ const AWS = require('aws-sdk');
 
 let awsConfig = {
     "endpoint": "http://localhost:8000",
+    "region": "localhost"
 };
 AWS.config.update(awsConfig);
 
