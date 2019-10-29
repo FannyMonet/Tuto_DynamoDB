@@ -6,14 +6,14 @@ let awsConfig = {
 };
 AWS.config.update(awsConfig);
 
-const dynamodb = new AWS.DynamoDB({apiVersion: '2012-08-10'});
+const dynamodb = new AWS.DynamoDB();
 
 var paramsTODO = {
     TableName: 'TODO',
     Item: {
-        'TODO_ID': {N: '001'},
+        'TODO_ID': {N: '1'},
         'COMPLETED': {B: 'false'},
-        'TEXT': {S: 'Finish DynamoDB Tutorial'} 
+        'TEXT': {S: 'first item'} 
     }
 };
 

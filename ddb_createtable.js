@@ -13,30 +13,19 @@ const paramsTODO = {
         {
             AttributeName: 'TODO_ID',
             AttributeType: 'N'
-        },
-        {
-            AttributeName: 'COMPLETED',
-            AttributeType: 'B'
         }
     ],
     KeySchema: [
         {
             AttributeName: 'TODO_ID',
             KeyType: 'HASH'
-        },
-        {
-            AttributeName: 'COMPLETED',
-            KeyType: 'RANGE'
         }
     ],
     ProvisionedThroughput: {
         ReadCapacityUnits: 1,
         WriteCapacityUnits: 1
     },
-    TableName: 'TODO',
-    StreamSpecification: {
-        StreamEnabled: false
-    }
+    TableName: 'TODO'
 };
 
 var paramsTODOLIST = {
@@ -56,34 +45,8 @@ var paramsTODOLIST = {
         ReadCapacityUnits: 1,
         WriteCapacityUnits: 1
     },
-    TableName: 'TODOLIST',
-    StreamSpecification: {
-        StreamEnabled: false
-    }
+    TableName: 'TODOLIST'
 };
-
-const paramsFoo = {
-    AttributeDefinitions: [
-        {
-            AttributeName: 'FOO',
-            AttributeType: 'N'
-        }
-    ],
-    KeySchema: [
-        {
-            AttributeName: 'FOO',
-            KeyType: 'HASH'
-        }
-    ],
-    ProvisionedThroughput: {
-        ReadCapacityUnits: 1,
-        WriteCapacityUnits: 1
-    },
-    TableName: 'FOO',
-    StreamSpecification: {
-        StreamEnabled: false
-    }
-}
 
 const createTable = (params) => {
     dynamodb.createTable(params, (err, data) => {
@@ -95,6 +58,5 @@ const createTable = (params) => {
     });
 }
 
-// createTable(paramsTODO);
-// createTable(paramsTODOLIST);
-// createTable(paramsFoo);
+createTable(paramsTODO);
+createTable(paramsTODOLIST);
